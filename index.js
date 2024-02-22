@@ -3,6 +3,11 @@ let buffer = "";
 let prevOp = "";
 let input_result = document.getElementById('input');
 
+input_result.addEventListener("click", () => {
+    buffer = buffer.slice(0,-1);
+    input_result.value = buffer;
+})
+
 //sonido
 const makeSound = (element) => {
     const soundId = element.getAttribute('data-sound');
@@ -34,7 +39,12 @@ numButtons.forEach((element, i)=>{
             add(nums_array[i]);
         } else {
             if (!buffer.includes(".")){
-                add(nums_array[i]);
+                if (buffer === ""){
+                    add("0");
+                    add(nums_array[i])
+                } else {
+                    add(nums_array[i]);
+                }
             }
         }
 
