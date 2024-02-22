@@ -10,11 +10,14 @@ input_result.addEventListener("click", () => {
 
 //sonido
 const makeSound = (element) => {
-    const soundId = element.getAttribute('data-sound');
-    const sound = document.getElementById(soundId);
-    if (sound) {
-        sound.currentTime = 0;
-        sound.play();
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (!isMobile) {
+        const soundId = element.getAttribute('data-sound');
+        const sound = document.getElementById(soundId);
+        if (sound) {
+            sound.currentTime = 0;
+            sound.play();
+        }
     }
 }
 
@@ -63,20 +66,26 @@ document.addEventListener("keydown", (e)=>{
                 add(e.key);
             }
         }
-        const sound = document.getElementById("sound_click");
-        if (sound) {
-            sound.currentTime = 0;
-            sound.play();
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) {
+            const sound = document.getElementById("sound_click");
+            if (sound) {
+                sound.currentTime = 0;
+                sound.play();
+            }
         }
     }
     if (e.key === "Escape"){
         result = 0;
         buffer = "";
         input_result.value = "";
-        const sound = document.getElementById("sound2");
-        if (sound) {
-            sound.currentTime = 0;
-            sound.play();
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) {
+            const sound = document.getElementById("sound2");
+            if (sound) {
+                sound.currentTime = 0;
+                sound.play();
+            }
         }
     }
     if (e.key === "Backspace"){
@@ -85,10 +94,13 @@ document.addEventListener("keydown", (e)=>{
             buffer = buffer.slice(0,-1);
         }
         input_result.value = buffer;
-        const sound = document.getElementById("sound2");
-        if (sound) {
-            sound.currentTime = 0;
-            sound.play();
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) {
+            const sound = document.getElementById("sound2");
+            if (sound) {
+                sound.currentTime = 0;
+                sound.play();
+            }
         }
     }
     if (e.ctrlKey && e.shiftKey && e.key === "L") {
