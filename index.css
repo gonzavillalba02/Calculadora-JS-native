@@ -1,0 +1,211 @@
+:root {
+    --background: #9DCCB8;
+    --dark-calculator: #102030;
+    --dark-other: #2A354B;
+    --dark-num: #C7D6D1;
+    --green : #0eb;
+}
+
+body {
+    background: var(--background);
+}
+
+.dom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    background: #fff;
+    width: 100vw;
+    height: 100vh;
+    max-width: 380px;
+    max-height: 580px;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.calc-dark {
+    background: var(--dark-calculator);
+}
+
+.cont-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.three-buttons {
+    border: none;
+    width: 50px;
+    height: 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.three-buttons span {
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.three-buttons span:first-child {
+    background: #ff0000;
+}
+
+.three-buttons span:nth-child(2) {
+    background: #ffcc00;
+}
+
+.three-buttons span:nth-child(3) {
+    background: #0A0;
+}
+
+.change {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.shell {
+    background: #aaa;
+    width: 50px;
+    height: 25px;
+    border-radius: 50px;
+    animation: gris .5s forwards linear;
+}
+
+.pintado {
+    animation: color .5s forwards linear;
+}
+
+@keyframes color {
+    to {
+        background: var(--green);
+    }
+}
+
+@keyframes gris {
+    from {
+        background: var(--green);
+    }
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    position: absolute;
+    border-radius: 100%;
+    transform: translateX(-13px);
+    animation: volver .5s ease-in-out;
+}
+
+.derecha {
+    animation: moverse .5s ease-in-out forwards;
+}
+
+
+@keyframes moverse {
+    to {
+        transform: translateX(13px);
+    }
+}
+
+@keyframes volver {
+    from {
+        transform: translateX(13px);
+    }
+}
+
+.result {
+    width: 90%;
+    padding: 0 5%;
+    margin: 10px 0;
+    height: 15%;
+    text-align: right;
+    border: none;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 60px;
+    cursor:default;
+}
+
+.result:focus {
+    outline: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-auto-rows: 70px;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+    margin:0 0 -20px -20px;
+    width: calc(100% + 40px);
+    height: calc(99% - 15% - 20px);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.container-dark {
+    background: var(--dark-other);
+}
+
+.container-button {
+    width: 18vw;
+    height: 18vw;
+    max-width: 70px;
+    max-height: 70px;
+    border: none;
+    background: none;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container-button:nth-child(8){
+    font-size: 20px;
+}
+
+.dot{
+    background: #000;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+}
+
+.container-button:last-child {
+    grid-column: 4;
+    grid-row: 5;
+}
+
+.sign {
+    background: #f7f7f7;
+}
+
+.input-dark {
+    background: var(--dark-calculator);
+    color: var(--green);
+}
+
+.num-dark {
+    color: var(--dark-num);
+}
+
+.dot-dark {
+    background: var(--dark-num);
+}
